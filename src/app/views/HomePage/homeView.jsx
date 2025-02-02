@@ -116,12 +116,12 @@ const HomeView = (props) => {
             <div>
               {props.music.map((element, index) => (
                 <div key={element.id}>
-                  <div>
+                  <div className="overflow-hidden md:w-auto w-full">
                     <iframe
                       src={`https://open.spotify.com/embed/track/${element.spotifyLink}`}
-                      width="800"
+                      className="md:w-[800px] w-full"
                       height="300"
-                      frameBorder=""
+                      frameBorder="0"
                       allow="encrypted-media"
                       title={element.name}
                     ></iframe>
@@ -169,11 +169,11 @@ const HomeView = (props) => {
               </h2>
             </div>
 
-            <div className="w-full max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="w-full max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 card-grid">
               {props.tours.map((tour) => (
                 <div
                   key={tour.id}
-                  className="relative group overflow-hidden rounded-lg"
+                  className="relative group overflow-hidden rounded-lg event-card"
                   style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${tour.imgBg})`,
                     backgroundSize: "cover",

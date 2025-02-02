@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpotify, faFacebook, faYoutube, faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const InstagramFeed = () => {
   const [instagramData, setInstagramData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [visiblePosts, setVisiblePosts] = useState(8); // Inicialmente 8 posts (4x2 grid)
-  const [allPostsLoaded, setAllPostsLoaded] = useState(false); // Verifica se todos os posts foram carregados
+  const [visiblePosts, setVisiblePosts] = useState(8);
+  const [allPostsLoaded, setAllPostsLoaded] = useState(false);
 
   const accessToken = "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD";
 
@@ -17,7 +15,6 @@ const InstagramFeed = () => {
         const response = await axios.get(
           `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`
         );
-        // Limitar para 8 posts (4x2 grid)
         setInstagramData(response.data.data);
         if (response.data.data.length <= visiblePosts) {
           setAllPostsLoaded(true);
@@ -33,10 +30,11 @@ const InstagramFeed = () => {
   }, [visiblePosts]);
 
   const handleLoadMore = () => {
-    if (visiblePosts + 8 >= instagramData.length) {
+    const newVisiblePosts = Math.min(visiblePosts + 8, instagramData.length);
+    setVisiblePosts(newVisiblePosts);
+    if (newVisiblePosts >= instagramData.length) {
       setAllPostsLoaded(true);
     }
-    setVisiblePosts(visiblePosts + 8);
   };
 
   return (
@@ -76,80 +74,39 @@ const InstagramFeed = () => {
         </div>
       ) : (
         <div
-          style={{
-            width: "100%",
-            maxWidth: "80rem",
-            padding: "0 1rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1.5rem",
-          }}
+          className="w-full max-w-screen-xl px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
         >
           {instagramData.slice(0, visiblePosts).map((post) => (
             <div
               key={post.id}
-              style={{
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: "0.75rem",
-                backgroundColor: "#0A0A0A",
-              }}
+              className="relative overflow-hidden rounded-lg bg-black"
             >
               <a
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "block", width: "100%", height: "100%" }}
+                className="block w-full h-full"
               >
                 {post.media_type === "VIDEO" ? (
-                  <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                  <div className="relative w-full h-full">
                     <video
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      className="w-full h-full object-cover"
                       controls
                       aria-label={post.caption || "Vídeo do Instagram"}
                     >
                       <source src={post.media_url} type="video/mp4" />
                       Seu navegador não suporta o vídeo.
                     </video>
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.2)",
-                        opacity: 0,
-                        transition: "opacity 0.3s ease-in-out",
-                        pointerEvents: "none",
-                      }}
-                    />
+                    <div className="absolute inset-0 bg-black opacity-20" />
                   </div>
                 ) : (
-                  <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                  <div className="relative w-full h-full">
                     <img
                       src={post.media_url}
                       alt={post.caption || "Post no Instagram"}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        transition: "transform 0.3s ease",
-                      }}
+                      className="w-full h-full object-cover transition-transform duration-300"
                     />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.2)",
-                        opacity: 0,
-                        transition: "opacity 0.3s ease-in-out",
-                        pointerEvents: "none",
-                      }}
-                    />
+                    <div className="absolute inset-0 bg-black opacity-20" />
                   </div>
                 )}
               </a>
@@ -159,26 +116,15 @@ const InstagramFeed = () => {
       )}
 
       {!allPostsLoaded && !loading && (
-        <div style={{ marginTop: "2rem" }}>
+        <div className="mt-8">
           <button
             onClick={handleLoadMore}
-            style={{
-              backgroundColor: "#f44336",
-              color: "white",
-              fontWeight: "bold",
-              padding: "12px 24px",
-              borderRadius: "0.5rem",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-            }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#d32f2f")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#f44336")}
+            className="bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out hover:bg-red-700"
           >
             Ver Mais
           </button>
         </div>
       )}
-      
     </div>
   );
 };
