@@ -34,44 +34,44 @@ const HomeScript = () => {
     const tours = [
         {
             id: 1,
-            date: "15/03",
-            city: "São Paulo",
-            venue: "Allianz Parque",
+            date: "2025",
+            city: "Volta Redonda",
+            venue: "A DEFINIR",
             time: "19:00",
-            price: "R$ 150,00",
-            symplaLink: "https://www.sympla.com.br/evento/show-sp",
-            imgBg: "https://images.unsplash.com/photo-1569929233287-f0565228c4d4?w=800&auto=format&fit=crop"
-        },
-        {
-            id: 2,
-            date: "02/04",
-            city: "Rio de Janeiro",
-            venue: "Maracanã",
-            time: "20:00",
-            price: "R$ 140,00",
-            symplaLink: "https://www.sympla.com.br/evento/show-rj",
-            imgBg: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&auto=format&fit=crop"
-        },
-        {
-            id: 3,
-            date: "20/04",
-            city: "Belo Horizonte",
-            venue: "Mineirão",
-            time: "19:30",
-            price: "R$ 120,00",
-            symplaLink: "https://www.sympla.com.br/evento/show-bh",
-            imgBg: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&auto=format&fit=crop"
-        },
-        {
-            id: 4,
-            date: "10/05",
-            city: "Brasília",
-            venue: "Mané Garrincha",
-            time: "20:00",
-            price: "R$ 130,00",
-            symplaLink: "https://www.sympla.com.br/evento/show-bsb",
-            imgBg: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&auto=format&fit=crop"
+            price: "R$0",
+            symplaLink: "",
+            imgBg: "https://i.ibb.co/JjTd01qN/New-Canvas1.png"
         }
+        // {
+        //     id: 2,
+        //     date: "02/04",
+        //     city: "Rio de Janeiro",
+        //     venue: "Maracanã",
+        //     time: "20:00",
+        //     price: "R$ 140,00",
+        //     symplaLink: "https://www.sympla.com.br/evento/show-rj",
+        //     imgBg: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&auto=format&fit=crop"
+        // },
+        // {
+        //     id: 3,
+        //     date: "20/04",
+        //     city: "Belo Horizonte",
+        //     venue: "Mineirão",
+        //     time: "19:30",
+        //     price: "R$ 120,00",
+        //     symplaLink: "https://www.sympla.com.br/evento/show-bh",
+        //     imgBg: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&auto=format&fit=crop"
+        // },
+        // {
+        //     id: 4,
+        //     date: "10/05",
+        //     city: "Brasília",
+        //     venue: "Mané Garrincha",
+        //     time: "20:00",
+        //     price: "R$ 130,00",
+        //     symplaLink: "https://www.sympla.com.br/evento/show-bsb",
+        //     imgBg: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&auto=format&fit=crop"
+        // }
     ];
 
     const handleScrollPosition = (value) => {
