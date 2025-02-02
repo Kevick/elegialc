@@ -16,7 +16,7 @@ export const DropDownView = () => {
                         <GO to={`${styles.music}`} smooth={true} duration={100}>Musicas</GO>
                         <GO to={`${styles.members}`} smooth={true} duration={100}>Membros</GO>
                         <GO to={`${styles.events}`} smooth={true} duration={100}>Eventos</GO>
-                        <GO to={`instafeed`} smooth={true} duration={100}>Media</GO>
+                        <GO to={`instafeed`} smooth={true} duration={100}>Fotos</GO>
                     </ul>
                 </div>
             </div>
