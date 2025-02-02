@@ -1,0 +1,54 @@
+#authPage {
+    background: linear-gradient(#000000a1 100%, gray), url("https://img.goodfon.com/original/2880x1800/b/ad/ibanez-gitara-elektrogitara-instrument.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    @apply flex justify-center h-full min-h-[100vh]
+}
+
+#authPage > :first-child {
+    @apply w-full min-h-[50vh] pr-10 text-black bg-white bg-opacity-80 flex items-center justify-end pb-24
+}
+
+#authPage > :first-child > div {
+    @apply w-[21rem]
+}
+
+#authPage > :nth-child(2) {
+    @apply w-full min-h-[50vh] pl-10 bg-red-500 bg-opacity-70 flex items-start justify-center pb-24
+}
+
+#authPage > :nth-child(2) > div {
+    @apply flex flex-col
+}
+
+#authPage > :nth-child(2) > div > button {
+    @apply m-3 bg-white w-80 h-11 rounded-md text-start
+}
+
+#authPage > :nth-child(2) > div > button > :first-child {
+    @apply pl-3 pr-3
+}
+
+#oAuth {
+    @apply bg-purple-500 flex flex-col
+}
+
+#oAuth button {
+    @apply cursor-not-allowed
+}
+
+
+@media screen and (max-width: 790px){
+    #authPage {
+        flex-direction: column;
+    }
+
+    #authPage > :first-child {
+        @apply justify-center p-0 pb-20 h-[100vh]
+    }
+
+    #authPage > :last-child {
+        @apply hidden p-0 items-center pb-10 pt-5 justify-start bg-transparent
+    }
+}
