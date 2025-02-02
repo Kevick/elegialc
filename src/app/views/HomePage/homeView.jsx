@@ -150,12 +150,14 @@ const HomeView = (props) => {
 
           <section id={styles.phase}>
             <div>
+              
               <div>
-                "Little things makes you smile. Dance barefoot in the dark.
-                Choose your words before you speak. Can't you see that all
-                you've got is time."
+                "Carregamos feridas que mantemos abertas,
+                criando infernos que chamamos de destino, 
+                enquanto buscamos no outro a culpa por nossa própria prisão 
+                Entre as sombras que criamos, buscamos a luz que nos liberta."
               </div>
-              <div>KALAO</div>
+              <div>ELEGIA LC</div>
             </div>
           </section>
 
