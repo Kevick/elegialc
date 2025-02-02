@@ -73,7 +73,7 @@ const HomeView = (props) => {
                   duration={100}
                   className={hoverClick}
                 >
-                  Members
+                  Membros
                 </GO>
                 <GO
                   to={`${styles.events}`}
@@ -81,7 +81,7 @@ const HomeView = (props) => {
                   duration={100}
                   className={hoverClick}
                 >
-                  Events
+                  Eventos
                 </GO>
                 <GO
                   to={`instafeed`}
@@ -89,7 +89,7 @@ const HomeView = (props) => {
                   duration={100}
                   className={hoverClick}
                 >
-                  Media
+                  Fotos
                 </GO>
               </ul>
             </nav>
