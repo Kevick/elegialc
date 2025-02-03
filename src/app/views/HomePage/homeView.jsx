@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios"; // Importando o axios
+import axios from "axios";
 import styles from "./homeStyle.module.css";
 import { Link as GO } from "react-scroll";
 import DropDownView from "../../components/dropdown-menu/dropdownView";
 import InstagramFeed from "./instafeed";
+import MysteryAlbumPopup from "./MysteryAlbumPopup";
 
 const HomeView = (props) => {
   const [instagramData, setInstagramData] = useState([]);
@@ -13,9 +14,8 @@ const HomeView = (props) => {
   const hoverClick = props.scrollPosition != 0 ? "hover:text-bluegray" : "";
 
   const accessToken =
-    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD"; // Seu access token
+    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD";
 
-  // Função para buscar o feed do Instagram
   useEffect(() => {
     const fetchInstagramFeed = async () => {
       try {
@@ -35,6 +35,7 @@ const HomeView = (props) => {
 
   return (
     <>
+      <MysteryAlbumPopup />
       <div id={styles.homePage}>
         <header id="home">
           <div className={bgColor}>
@@ -150,11 +151,10 @@ const HomeView = (props) => {
 
           <section id={styles.phase}>
             <div>
-              
               <div>
                 "Carregamos feridas que mantemos abertas,
                 criando infernos que chamamos de destino, 
-                enquanto buscamos no outro a culpa por nossa própria prisão 
+                enquanto buscamos no outro a culpa por nossa própria prisão. 
                 Entre as sombras que criamos, buscamos a luz que nos liberta."
               </div>
               <div>ELEGIA LC</div>
@@ -183,7 +183,6 @@ const HomeView = (props) => {
                   }}
                 >
                   <div className="p-6 aspect-[3/4] flex flex-col justify-between">
-                    {/* Data e Cidade */}
                     <div>
                       <div className="font-alkatra text-3xl mb-2">
                         {tour.date}
@@ -193,7 +192,6 @@ const HomeView = (props) => {
                       </h3>
                     </div>
 
-                    {/* Informações */}
                     <div className="space-y-4">
                       <div>
                         <p className="text-gray-400 text-sm">Local</p>
@@ -223,17 +221,19 @@ const HomeView = (props) => {
                     </div>
                   </div>
 
-                  {/* Overlay de hover corrigido */}
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               ))}
             </div>
           </section>
-          {/* Seção do feed do Instagram */}
 
           <InstagramFeed />
 
-          <footer>@2025 ELEGIA</footer>
+          <footer>
+            <a href="https://www.instagram.com/lc.elegia" target="_blank" rel="noopener noreferrer">
+              @ELEGIA LC
+            </a>
+          </footer>
         </main>
       </div>
     </>
