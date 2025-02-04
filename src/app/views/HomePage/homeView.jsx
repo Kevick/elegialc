@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // Importando o axios
 import styles from "./homeStyle.module.css";
 import { Link as GO } from "react-scroll";
 import DropDownView from "../../components/dropdown-menu/dropdownView";
 import InstagramFeed from "./instafeed";
-import MysteryAlbumPopup from "./MysteryAlbumPopup";
 
 const HomeView = (props) => {
   const [instagramData, setInstagramData] = useState([]);
@@ -14,8 +13,9 @@ const HomeView = (props) => {
   const hoverClick = props.scrollPosition != 0 ? "hover:text-bluegray" : "";
 
   const accessToken =
-    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD";
+    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD"; // Seu access token
 
+  // Função para buscar o feed do Instagram
   useEffect(() => {
     const fetchInstagramFeed = async () => {
       try {
@@ -35,7 +35,6 @@ const HomeView = (props) => {
 
   return (
     <>
-      <MysteryAlbumPopup />
       <div id={styles.homePage}>
         <header id="home">
           <div className={bgColor}>
@@ -130,6 +129,41 @@ const HomeView = (props) => {
                 </div>
               ))}
             </div>
+            <div className="w-full md:w-[400px] bg-[#0A0A0A] text-white p-6 rounded-lg shadow-lg">
+              <div className="flex flex-col items-center text-center">
+              <h1 className="text-3xl font-bold mb-2">Produção</h1>
+
+                <img
+                  src="https://i.ibb.co/SX5pXg31/image.png"
+                  alt="Enrico"
+                  className="w-48 h-48 rounded-full object-cover mb-4 border-4 border-red-500"
+                />
+                <h3 className="text-1xl font-bold mb-2">Enrico Stornelli</h3>
+                <p className="text-white-500 mb-4">
+                  <br />
+                  Audio Engineer [Edit , Mix/Master]
+                  <br />
+                  🎼Composer/Virtual Orchestrator
+                  <br />
+                  🎸Guitarrist in @niennaband
+                </p>
+                <a
+                  href="https://www.instagram.com/enrico.stornelli/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full transition-colors duration-300"
+                >
+                  <svg
+                    className="w-6 h-6 mr-2"
+                    fill="white"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.148-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.358-.2 6.78-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.2-4.358-2.618-6.78-6.98-6.98-1.28-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                  <span className="text-white">@enrico.stornelli</span>
+                </a>
+              </div>
+            </div>
           </section>
 
           <div id={styles.player}></div>
@@ -152,10 +186,10 @@ const HomeView = (props) => {
           <section id={styles.phase}>
             <div>
               <div>
-                "Carregamos feridas que mantemos abertas,
-                criando infernos que chamamos de destino, 
-                enquanto buscamos no outro a culpa por nossa própria prisão. 
-                Entre as sombras que criamos, buscamos a luz que nos liberta."
+                "Carregamos feridas que mantemos abertas, criando infernos que
+                chamamos de destino, enquanto buscamos no outro a culpa por
+                nossa própria prisão Entre as sombras que criamos, buscamos a
+                luz que nos liberta."
               </div>
               <div>ELEGIA LC</div>
             </div>
@@ -183,6 +217,7 @@ const HomeView = (props) => {
                   }}
                 >
                   <div className="p-6 aspect-[3/4] flex flex-col justify-between">
+                    {/* Data e Cidade */}
                     <div>
                       <div className="font-alkatra text-3xl mb-2">
                         {tour.date}
@@ -192,6 +227,7 @@ const HomeView = (props) => {
                       </h3>
                     </div>
 
+                    {/* Informações */}
                     <div className="space-y-4">
                       <div>
                         <p className="text-gray-400 text-sm">Local</p>
@@ -221,19 +257,17 @@ const HomeView = (props) => {
                     </div>
                   </div>
 
+                  {/* Overlay de hover corrigido */}
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               ))}
             </div>
           </section>
+          {/* Seção do feed do Instagram */}
 
           <InstagramFeed />
 
-          <footer>
-            <a href="https://www.instagram.com/lc.elegia" target="_blank" rel="noopener noreferrer">
-              @ELEGIA LC
-            </a>
-          </footer>
+          <footer>@2025 ELEGIA</footer>
         </main>
       </div>
     </>
