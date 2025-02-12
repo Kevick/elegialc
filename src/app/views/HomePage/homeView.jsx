@@ -4,6 +4,7 @@ import styles from "./homeStyle.module.css";
 import { Link as GO } from "react-scroll";
 import DropDownView from "../../components/dropdown-menu/dropdownView";
 import InstagramFeed from "./instafeed";
+import MysteryAlbumPopup from "./MysteryAlbumPopup";
 
 const HomeView = (props) => {
   const [instagramData, setInstagramData] = useState([]);
@@ -34,6 +35,7 @@ const HomeView = (props) => {
 
   return (
     <>
+      <MysteryAlbumPopup />
       <div id={styles.homePage}>
         <header id="home">
           <div className={bgColor}>
