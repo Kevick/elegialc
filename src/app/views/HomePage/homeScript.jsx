@@ -34,14 +34,24 @@ const HomeScript = () => {
     const tours = [
         {
             id: 1,
-            date: "2025",
+            date: "28/05/2025",
             city: "Volta Redonda",
-            venue: "A DEFINIR",
-            time: "19:00",
+            venue: "CALUMMA - Heroes Bands!",
+            time: "20:00",
             price: "R$0",
             symplaLink: "",
-            imgBg: "https://i.ibb.co/JjTd01qN/New-Canvas1.png"
-        }
+            imgBg: "https://i.ibb.co/v4nvPs3Z/IMG-6966.jpg"
+        },
+        {
+            id: 2,
+            date: "28/06/2025",
+            city: "Volta Redonda",
+            venue: "Rockstar Point - Sangue Podre Fest!",
+            time: "17:00",
+            price: "Valores no Site!",
+            symplaLink: "https://www.sympla.com.br/evento/sangue-podre-fest-1-edicao/2935070?referrer=linktr.ee",
+            imgBg: "https://i.ibb.co/MkVXp7TX/image.png"
+        },
         // {
         //     id: 2,
         //     date: "02/04",
