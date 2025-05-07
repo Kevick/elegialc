@@ -18,11 +18,13 @@ const HomeScript = () => {
         },
         {
             id: 3,
-            name: "Vida em Jogo",
+            name: "Inferno",
             spotifyLink: "7MdTtU9cLE2qj0PcexCo1B"
         },
         
     ] 
+    
+    
 
     const group = [
         {id: 1, name: "Lucas 'Loki'", position: "VOCAL/GUITARRA", img: "https://i.ibb.co/pvQ9q4p8/image.png"},
@@ -107,7 +109,7 @@ const HomeScript = () => {
     return (
         <>
             <HomeView 
-                music={albums} 
+                music={albums}
                 members={group} 
                 tours={tours}
                 media={pictures} 

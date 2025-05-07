@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"; // Importando o axios
+import axios from "axios";
 import styles from "./homeStyle.module.css";
 import { Link as GO } from "react-scroll";
 import DropDownView from "../../components/dropdown-menu/dropdownView";
@@ -14,9 +14,8 @@ const HomeView = (props) => {
   const hoverClick = props.scrollPosition != 0 ? "hover:text-bluegray" : "";
 
   const accessToken =
-    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD"; // Seu access token
+    "IGAAZADvPvO9ZAxBZAE1FMEFwMUxVb3IwamJ6d25ra1h1bkdrQ1BOVGk5VFFHaFRkOWhzX2tiT1l1R1ozZAVQzWVk2b0FVNzF0TG9aQXY3VnNSMEQyN0RsSlllWERCUUNINndNTWdabDR3ejhjTU00dWlxT1lTNTJVR1o3RE44cVl3bwZDZD";
 
-  // Função para buscar o feed do Instagram
   useEffect(() => {
     const fetchInstagramFeed = async () => {
       try {
@@ -68,6 +67,14 @@ const HomeView = (props) => {
                   className={hoverClick}
                 >
                   Musicas
+                </GO>
+                <GO
+                  to={`demos`}
+                  smooth={true}
+                  duration={100}
+                  className={hoverClick}
+                >
+                  Demos
                 </GO>
                 <GO
                   to={`${styles.members}`}
@@ -131,10 +138,26 @@ const HomeView = (props) => {
                 </div>
               ))}
             </div>
+            
+            {/* Nova seção de Demos */}
+            <h2 id="demos" className="mt-16 mb-8 text-center text-2xl font-bold">Demos</h2>
+            <div className="flex justify-center">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/Mvtvz7JTB0U?si=g5EF4v9vxta5XL2Q"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+              ></iframe>
+            </div>
+
             <div className="w-full md:w-[400px] bg-[#0A0A0A] text-white p-6 rounded-lg shadow-lg">
               <div className="flex flex-col items-center text-center">
-              <h1 className="text-3xl font-bold mb-2">Produção</h1>
-
+                <h1 className="text-3xl font-bold mb-2">Produção</h1>
                 <img
                   src="https://i.ibb.co/SX5pXg31/image.png"
                   alt="Enrico"
@@ -219,7 +242,6 @@ const HomeView = (props) => {
                   }}
                 >
                   <div className="p-6 aspect-[3/4] flex flex-col justify-between">
-                    {/* Data e Cidade */}
                     <div>
                       <div className="font-alkatra text-3xl mb-2">
                         {tour.date}
@@ -229,7 +251,6 @@ const HomeView = (props) => {
                       </h3>
                     </div>
 
-                    {/* Informações */}
                     <div className="space-y-4">
                       <div>
                         <p className="text-gray-400 text-sm">Local</p>
@@ -259,13 +280,11 @@ const HomeView = (props) => {
                     </div>
                   </div>
 
-                  {/* Overlay de hover corrigido */}
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               ))}
             </div>
           </section>
-          {/* Seção do feed do Instagram */}
 
           <InstagramFeed />
 
